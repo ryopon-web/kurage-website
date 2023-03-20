@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kurage【クラゲ】の公式サイト</title>
+</head>
+<body>
+    <h1>kurage【クラゲ】の公式サイト</h1>
+
+    <h2>自己紹介</h2>
+    <h2>名前：クラゲ</h2>
+    <h2>性別：</h2>
+    <h2>生年月日：</h2>
+    <h2>好きな事・YouTubeで頑張りたい事</h2>
+    <h3>好きな事・YouTubeで頑張りたい事を書く</h3>
+    <header>
+        <div class="hamburger-menu">
+        <!--   ボタンが押されたかどうかをチェックボックスで判断する -->
+            <input type="checkbox" id="menu-btn-check">
+      <!--     ハンバーガーボタン -->
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+            <!--メニュー-->
+            <div class="menu-content">
+                <ul>
+                    <li>
+                        <a href="index.html">ホーム</a>
+                    </li>
+                    <li>
+                        <a href="self-introduction.html">自己紹介</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@kuragekun0506/">YouTubeチャンネル</a>
+                    </li>
+                    <li>
+                        <a href="#">お問い合わせ</a>
+                    </li>
+                </ul>
+            </div>
+            <!--メニュー　end-->
+        </div>
+    </header>
+
+    <style>
+        h1{
+            color: orangered;
+        }
+        h2{
+            text-align: center;
+            color: white;
+        }
+        h3{
+            text-align: center;
+            color: white;
+        }
+        body{
+            background-color: orange;
+        }
+        /* =================
+ハンバーガーボタンの実装
+================= */
+
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: rgb(25, 255, 0);
+}
+.menu-btn:hover {
+  cursor: pointer;
+}
+/* 三本線の実装 */
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+.menu-btn span:before {
+  bottom: 8px;
+}
+.menu-btn span:after {
+  top: 8px;
+}
+/* チェックボックスを非表示にする */
+#menu-btn-check {
+  display: none;
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0); /*メニューオープン時は真ん中の線を透明にする*/
+}
+
+/* メニューを開いている時はハンバーガーボタンが×になる */
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* =================
+メニュー部分の実装
+================= */
+
+.menu-content {
+  width: 80%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+   /* メニューを外に出しておく */
+  left: 100%;
+
+  z-index: 80;
+  background-color: rgb(255, 234, 0);
+  transition: all 0.5s; /*アニメーションを滑らかにする*/
+}
+.menu-content ul {
+  padding: 70px 10px 0;
+}
+.menu-content ul li {
+  border-bottom: solid 1px #000000;
+  list-style: none;
+}
+.menu-content ul li a {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  text-decoration: none;
+  padding: 9px 15px 10px 0;
+  position: relative;
+}
+
+#menu-btn-check:checked ~ .menu-content {
+  left: 30%; /*メニューを画面内へ動かす*/
+}
+    </style>
+</body>
+</html>
